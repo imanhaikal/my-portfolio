@@ -98,11 +98,14 @@ const Projects = () => {
                 whileHover={{ scale: 1.02, y: -10 }}
               >
                 {/* Project Image */}
+                {/* TODO: Replace placeholder images with actual project screenshots. */}
+                {/* For best performance, use optimized images in WebP format. */}
                 <div className="relative overflow-hidden h-48">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <div className="absolute top-4 left-4">

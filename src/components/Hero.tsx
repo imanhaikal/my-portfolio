@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Mail, Phone, MapPin, Github, Linkedin, ArrowDown, Sparkles } from 'lucide-react';
+import { Download, Mail, Phone, MapPin, Github, Linkedin, ArrowDown, Sparkles, Target } from 'lucide-react';
 import { Tilt } from 'react-tilt';
 import { TypeAnimation } from 'react-type-animation';
+import useIsMobile from '../hooks/useIsMobile';
 
 const Hero = () => {
+  const isMobile = useIsMobile();
   const handleDownloadResume = () => {
     const link = document.createElement('a');
     link.href = '/resume.pdf';
@@ -38,33 +40,35 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Hero Background Effects */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.6, 0.3, 0.6],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4,
-          }}
-        />
-      </div>
+      {!isMobile && (
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4,
+            }}
+          />
+        </div>
+      )}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -81,18 +85,22 @@ const Hero = () => {
             <Tilt options={{ max: 25, scale: 1.05, speed: 400, glare: true, 'max-glare': 0.5 }}>
               <div className="relative">
                 {/* Animated rings */}
-                <motion.div
-                  className="absolute inset-0 rounded-full border-2 border-blue-400/30"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  style={{ width: '120%', height: '120%', left: '-10%', top: '-10%' }}
-                />
-                <motion.div
-                  className="absolute inset-0 rounded-full border-2 border-purple-400/30"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                  style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }}
-                />
+                {!isMobile && (
+                  <>
+                    <motion.div
+                      className="absolute inset-0 rounded-full border-2 border-blue-400/30"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      style={{ width: '120%', height: '120%', left: '-10%', top: '-10%' }}
+                    />
+                    <motion.div
+                      className="absolute inset-0 rounded-full border-2 border-purple-400/30"
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                      style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }}
+                    />
+                  </>
+                )}
                 
                 {/* Main image container */}
                 <motion.div
@@ -102,21 +110,25 @@ const Hero = () => {
                 >
                   <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
                     <img 
-                      src="/img/iman.jpeg"
+                      src="/img/iman.webp"
                       alt="Iman Haikal"
                       className="w-full h-full object-cover"
+                      width="320"
+                      height="320"
                     />
                   </div>
                 </motion.div>
 
                 {/* Floating elements */}
-                <motion.div
-                  className="absolute -top-4 -right-4 glass-effect rounded-full p-3"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <Sparkles className="w-6 h-6 text-yellow-400" />
-                </motion.div>
+                {!isMobile && (
+                  <motion.div
+                    className="absolute -top-4 -right-4 glass-effect rounded-full p-3"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    <Sparkles className="w-6 h-6 text-yellow-400" />
+                  </motion.div>
+                )}
               </div>
             </Tilt>
           </motion.div>
@@ -235,8 +247,8 @@ const Hero = () => {
               className="flex justify-center lg:justify-start gap-4"
             >
               {[
-                { icon: Github, href: '#', label: 'GitHub' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
+                { icon: Github, href: 'https://github.com/imanhaikal', label: 'GitHub'},
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/iman-haikal-mokhzamir-aznan-2934042a5/', label: 'LinkedIn' },
               ].map((social, index) => (
                 <motion.a
                   key={index}
