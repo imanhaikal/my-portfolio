@@ -47,11 +47,11 @@ const Header = () => {
           {/* Logo */}
           <motion.div 
             className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
           >
             <div className="relative">
-              <Code2 className="w-8 h-8 text-blue-400 glow-effect" />
+              <Code2 className="w-8 h-8 text-blue-400 glow-effect transition-transform duration-300" />
               <div className="absolute inset-0 bg-blue-400 blur-lg opacity-30 animate-pulse"></div>
             </div>
             <span className="text-2xl font-bold gradient-text">IH</span>
@@ -72,10 +72,10 @@ const Header = () => {
               >
                 {item.label}
                 <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: '100%' }}
-                  transition={{ duration: 0.3 }}
+                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 origin-left"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
                 />
               </motion.button>
             ))}
@@ -118,13 +118,13 @@ const Header = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="md:hidden mt-4 glass-effect rounded-xl overflow-hidden"
             >
-              <div className="py-4">
+              <div className="py-2">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.href}
@@ -133,7 +133,7 @@ const Header = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    whileHover={{ x: 10 }}
+                    whileHover={{ x: 5, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
                   >
                     {item.label}
                   </motion.button>

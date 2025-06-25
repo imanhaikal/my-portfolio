@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Download, Mail, Phone, MapPin, Github, Linkedin, ArrowDown, Sparkles } from 'lucide-react';
+import { Tilt } from 'react-tilt';
+import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   const handleDownloadResume = () => {
@@ -76,45 +78,47 @@ const Hero = () => {
             variants={itemVariants}
             className="flex-shrink-0 relative"
           >
-            <div className="relative">
-              {/* Animated rings */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-2 border-blue-400/30"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                style={{ width: '120%', height: '120%', left: '-10%', top: '-10%' }}
-              />
-              <motion.div
-                className="absolute inset-0 rounded-full border-2 border-purple-400/30"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }}
-              />
-              
-              {/* Main image container */}
-              <motion.div
-                className="w-80 h-80 rounded-full overflow-hidden relative luxury-gradient p-1 glow-effect"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
-                  <img 
-                    src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                    alt="Iman Haikal"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
+            <Tilt options={{ max: 25, scale: 1.05, speed: 400, glare: true, 'max-glare': 0.5 }}>
+              <div className="relative">
+                {/* Animated rings */}
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-blue-400/30"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  style={{ width: '120%', height: '120%', left: '-10%', top: '-10%' }}
+                />
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-purple-400/30"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }}
+                />
+                
+                {/* Main image container */}
+                <motion.div
+                  className="w-80 h-80 rounded-full overflow-hidden relative luxury-gradient p-1 glow-effect"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
+                    <img 
+                      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                      alt="Iman Haikal"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </motion.div>
 
-              {/* Floating elements */}
-              <motion.div
-                className="absolute -top-4 -right-4 glass-effect rounded-full p-3"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <Sparkles className="w-6 h-6 text-yellow-400" />
-              </motion.div>
-            </div>
+                {/* Floating elements */}
+                <motion.div
+                  className="absolute -top-4 -right-4 glass-effect rounded-full p-3"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <Sparkles className="w-6 h-6 text-yellow-400" />
+                </motion.div>
+              </div>
+            </Tilt>
           </motion.div>
 
           {/* Content */}
@@ -145,8 +149,20 @@ const Hero = () => {
               variants={itemVariants}
               className="text-2xl lg:text-4xl text-gray-300 mb-8 font-light"
             >
-              Elite Software Architect &{' '}
-              <span className="gradient-text font-medium">Technology Visionary</span>
+              <TypeAnimation
+                sequence={[
+                  'Elite Software Architect',
+                  2000,
+                  'Technology Visionary',
+                  2000,
+                  'Creative Problem Solver',
+                  2000,
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={Infinity}
+                className="gradient-text font-medium"
+              />
             </motion.h2>
 
             {/* Description */}
@@ -191,9 +207,10 @@ const Hero = () => {
             >
               <motion.button
                 onClick={handleDownloadResume}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold text-white overflow-hidden"
-                whileHover={{ scale: 1.05 }}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold text-white overflow-hidden shadow-lg shadow-blue-500/30"
+                whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex items-center gap-3">
@@ -205,8 +222,8 @@ const Hero = () => {
 
               <motion.button
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group px-8 py-4 glass-effect rounded-full font-semibold text-white border border-white/20 hover:border-white/40 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
+                className="group px-8 py-4 glass-effect rounded-full font-semibold text-white border border-white/20 hover:border-white/40 transition-all duration-300 shadow-lg shadow-white/10"
+                whileHover={{ scale: 1.05, y: -3, transition: { duration: 0.2 } }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="group-hover:gradient-text transition-all duration-300">Let's Connect</span>

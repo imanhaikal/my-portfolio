@@ -11,29 +11,33 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       {/* Animated background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 mesh-gradient opacity-30"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-blue-900 opacity-70"></div>
         
         {/* Floating particles */}
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-20"
+            className="absolute bg-blue-400 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              opacity: Math.random() * 0.5 + 0.1,
             }}
             animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.8, 0.2],
+              y: [0, Math.random() * -100, 0],
+              x: [0, Math.random() * 100 - 50, 0],
+              scale: [1, Math.random() * 1.5 + 0.5, 1],
             }}
             transition={{
-              duration: 3 + Math.random() * 4,
+              duration: 5 + Math.random() * 10,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              repeatType: 'reverse',
+              delay: Math.random() * 5,
             }}
           />
         ))}
