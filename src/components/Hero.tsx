@@ -102,7 +102,7 @@ const Hero = () => {
                 >
                   <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
                     <img 
-                      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                      src="/img/iman.jpeg"
                       alt="Iman Haikal"
                       className="w-full h-full object-cover"
                     />
@@ -151,11 +151,11 @@ const Hero = () => {
             >
               <TypeAnimation
                 sequence={[
-                  'Elite Software Architect',
+                  'Computer Science Student',
                   2000,
-                  'Technology Visionary',
+                  'Information Systems Major',
                   2000,
-                  'Creative Problem Solver',
+                  'Aspiring Software Developer',
                   2000,
                 ]}
                 wrapper="span"
@@ -170,9 +170,8 @@ const Hero = () => {
               variants={itemVariants}
               className="text-lg text-gray-400 mb-12 leading-relaxed max-w-2xl"
             >
-              Crafting extraordinary digital experiences through cutting-edge technology and 
-              innovative solutions. Transforming complex challenges into elegant, scalable systems 
-              that drive business success.
+              A Computer Science student at the University of Malaya. Majoring in Information Systems, and seeking 
+              experiences and knowledge to expand my horizon.
             </motion.p>
 
             {/* Contact Info */}
@@ -183,7 +182,7 @@ const Hero = () => {
               {[
                 { icon: Mail, text: 'imanhaikal04@gmail.com', href: 'mailto:imanhaikal04@gmail.com' },
                 { icon: Phone, text: '01130814401', href: 'tel:01130814401' },
-                { icon: MapPin, text: 'Egypt', href: '#' },
+                { icon: MapPin, text: 'Kajang, Selangor', href: '#' },
               ].map((item, index) => (
                 <motion.a
                   key={index}

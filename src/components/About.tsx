@@ -1,40 +1,64 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Smartphone, Globe, Award, Users, Zap, Target } from 'lucide-react';
+import { GraduationCap, Star } from 'lucide-react';
 
 const About = () => {
-  const highlights = [
+  const education = [
     {
-      icon: Code,
-      title: "Full-Stack Mastery",
-      description: "Expert-level proficiency in modern web technologies, cloud architecture, and scalable system design",
+      icon: GraduationCap,
+      title: "Bachelor of Computer Science (Information Systems)",
+      institution: "University of Malaya",
+      period: "2023 – Present",
+      details: "Latest GPA: 3.81",
       color: "from-blue-400 to-cyan-400"
     },
     {
-      icon: Database,
-      title: "Data Architecture",
-      description: "Advanced database design, optimization, and big data solutions for enterprise-scale applications",
+      icon: GraduationCap,
+      title: "Foundation of Physical Sciences",
+      institution: "University of Malaya",
+      period: "2022 – 2023",
+      details: "CGPA: 3.67",
       color: "from-purple-400 to-pink-400"
     },
     {
-      icon: Smartphone,
-      title: "Mobile Innovation",
-      description: "Cross-platform mobile development with cutting-edge frameworks and native performance",
+      icon: GraduationCap,
+      title: "SPM",
+      institution: "MRSM Parit",
+      period: "2017 – 2022",
+      details: "Result: 8A 1B",
       color: "from-green-400 to-emerald-400"
     },
-    {
-      icon: Globe,
-      title: "Digital Transformation",
-      description: "Leading digital transformation initiatives and modernizing legacy systems for Fortune 500 companies",
-      color: "from-orange-400 to-red-400"
-    }
   ];
 
-  const stats = [
-    { number: "50+", label: "Projects Delivered", icon: Target },
-    { number: "5+", label: "Years Experience", icon: Award },
-    { number: "20+", label: "Technologies Mastered", icon: Zap },
-    { number: "100%", label: "Client Satisfaction", icon: Users },
+  const activities = [
+    {
+      icon: Star,
+      title: "Head of Multimedia and Publicity",
+      organization: "Festival Seni UM (FESENI)",
+      period: "2024",
+      color: "from-orange-400 to-red-400"
+    },
+    {
+      icon: Star,
+      title: "Appointed College Action Committee (Multimedia and Design)",
+      organization: "Jawatankuasa Tindakan Kolej Dilantik",
+      period: "2024 - 2025",
+      color: "from-yellow-400 to-amber-400"
+    },
+    {
+      icon: Star,
+      title: "1st Place (Dikir Barat)",
+      organization: "Festival Seni UM (FESENI)",
+      period: "2025",
+      color: "from-teal-400 to-cyan-500"
+    },
+     {
+      icon: Star,
+      title: "Committee (Contest Protocol)",
+      organization: "Programming League National (PLN)",
+      period: "2025",
+      color: "from-indigo-400 to-blue-500"
+    }
   ];
 
   const containerVariants = {
@@ -90,74 +114,22 @@ const About = () => {
             </motion.div>
             
             <h2 className="text-5xl lg:text-7xl font-bold mb-8">
-              <span className="gradient-text">Crafting Digital</span>
+              <span className="gradient-text">My</span>
               <br />
-              <span className="text-white">Excellence</span>
+              <span className="text-white">Journey</span>
             </h2>
             
             <p className="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              I'm a visionary software architect with an unwavering passion for creating 
-              transformative digital experiences. My expertise spans the entire technology 
-              spectrum, from elegant frontend interfaces to robust backend systems.
+              Here is a summary of my academic and extra-curricular journey so far.
             </p>
           </motion.div>
 
-          {/* Stats Section */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center group"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="glass-effect rounded-2xl p-8 premium-shadow group-hover:bg-white/10 transition-all duration-300">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-full bg-gradient-to-r from-blue-400 to-purple-400">
-                      <stat.icon className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  <div className="text-4xl font-bold gradient-text mb-2">{stat.number}</div>
-                  <div className="text-gray-400 font-medium">{stat.label}</div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Story Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Education Section */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-3xl font-bold text-white mb-8">My Journey</h3>
-              <div className="space-y-6 text-gray-300 leading-relaxed">
-                <p className="text-lg">
-                  My journey in technology began with a simple fascination for how digital 
-                  systems could solve real-world problems. This curiosity evolved into a 
-                  deep expertise in crafting scalable, innovative solutions that drive 
-                  business transformation.
-                </p>
-                <p className="text-lg">
-                  Throughout my career, I've had the privilege of working with industry 
-                  leaders, architecting systems that serve millions of users, and mentoring 
-                  the next generation of developers. Every project is an opportunity to 
-                  push the boundaries of what's possible.
-                </p>
-                <p className="text-lg">
-                  I believe in the power of clean code, elegant architecture, and 
-                  user-centric design. My approach combines technical excellence with 
-                  strategic thinking, ensuring that every solution not only works 
-                  flawlessly but also delivers exceptional business value.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Highlights Section */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-3xl font-bold text-white mb-8">Core Expertise</h3>
+              <h3 className="text-3xl font-bold text-white mb-8">Education</h3>
               <div className="space-y-6">
-                {highlights.map((item, index) => (
+                {education.map((item, index) => (
                   <motion.div
                     key={index}
                     className="group glass-effect rounded-2xl p-6 hover:bg-white/5 transition-all duration-300 cursor-pointer"
@@ -172,8 +144,43 @@ const About = () => {
                         <h4 className="text-xl font-semibold text-white mb-2 group-hover:gradient-text transition-all duration-300">
                           {item.title}
                         </h4>
-                        <p className="text-gray-400 leading-relaxed">
-                          {item.description}
+                        <p className="text-gray-400 leading-relaxed font-medium">
+                          {item.institution}
+                        </p>
+                         <p className="text-gray-400 leading-relaxed text-sm">
+                          {item.period} - {item.details}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Activities Section */}
+            <motion.div variants={itemVariants}>
+              <h3 className="text-3xl font-bold text-white mb-8">Extra-Curricular Activities</h3>
+              <div className="space-y-6">
+                {activities.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="group glass-effect rounded-2xl p-6 hover:bg-white/5 transition-all duration-300 cursor-pointer"
+                    whileHover={{ scale: 1.02, x: 10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-r ${item.color} group-hover:scale-110 transition-transform duration-300`}>
+                        <item.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-xl font-semibold text-white mb-2 group-hover:gradient-text transition-all duration-300">
+                          {item.title}
+                        </h4>
+                        <p className="text-gray-400 leading-relaxed font-medium">
+                          {item.organization}
+                        </p>
+                         <p className="text-gray-400 leading-relaxed text-sm">
+                          {item.period}
                         </p>
                       </div>
                     </div>

@@ -6,10 +6,8 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
     subject: '',
     message: '',
-    budget: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,11 +20,11 @@ const Contact = () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', company: '', subject: '', message: '', budget: '' });
+    setFormData({ name: '', email: '', subject: '', message: '' });
     setIsSubmitting(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -91,14 +89,13 @@ const Contact = () => {
             </motion.div>
             
             <h2 className="text-5xl lg:text-7xl font-bold mb-8">
-              <span className="text-white">Start Your</span>
+              <span className="text-white">Get In</span>
               <br />
-              <span className="gradient-text">Next Project</span>
+              <span className="gradient-text">Touch</span>
             </h2>
             
             <p className="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              Ready to transform your vision into reality? Let's discuss how we can 
-              create something extraordinary together. Every great project starts with a conversation.
+              I'm always open to connecting with new people. Feel free to reach out to me.
             </p>
           </motion.div>
 
@@ -129,8 +126,8 @@ const Contact = () => {
                   {
                     icon: MapPin,
                     title: "Location",
-                    value: "Egypt",
-                    description: "Available for remote work globally",
+                    value: "Kajang, Selangor",
+                    description: "Available for new opportunities",
                     href: "#",
                     color: "from-purple-400 to-pink-400"
                   },
@@ -171,7 +168,6 @@ const Contact = () => {
                   {[
                     { icon: Github, href: "#", label: "GitHub", color: "hover:bg-gray-700" },
                     { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:bg-blue-600" },
-                    { icon: MessageCircle, href: "#", label: "Discord", color: "hover:bg-indigo-600" },
                   ].map((social, index) => (
                     <motion.a
                       key={index}
@@ -229,44 +225,9 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 glass-effect rounded-xl border border-white/10 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-white placeholder-gray-400"
-                      placeholder="Your Company"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-2">
-                      Project Budget
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 glass-effect rounded-xl border border-white/10 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-white"
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="5k-10k">$5K - $10K</option>
-                      <option value="10k-25k">$10K - $25K</option>
-                      <option value="25k-50k">$25K - $50K</option>
-                      <option value="50k+">$50K+</option>
-                    </select>
-                  </div>
-                </div>
-
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                    Project Subject *
+                    Subject *
                   </label>
                   <input
                     type="text"
@@ -276,23 +237,23 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 glass-effect rounded-xl border border-white/10 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-white placeholder-gray-400"
-                    placeholder="Web Application Development"
+                    placeholder="Subject of your message"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Project Details *
+                    Message *
                   </label>
                   <textarea
                     id="message"
                     name="message"
+                    rows={5}
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={6}
-                    className="w-full px-4 py-3 glass-effect rounded-xl border border-white/10 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-white placeholder-gray-400 resize-none"
-                    placeholder="Tell me about your project, goals, timeline, and any specific requirements..."
+                    className="w-full px-4 py-3 glass-effect rounded-xl border border-white/10 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-white placeholder-gray-400"
+                    placeholder="Your message here..."
                   ></textarea>
                 </div>
 

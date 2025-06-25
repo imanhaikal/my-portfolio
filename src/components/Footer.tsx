@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
             <div>
               <div className="text-3xl font-bold gradient-text">Iman Haikal</div>
-              <div className="text-sm text-gray-400 font-medium">Elite Software Architect</div>
+              <div className="text-sm text-gray-400 font-medium">Computer Science Student</div>
             </div>
           </motion.div>
 
@@ -52,8 +52,8 @@ const Footer = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Crafting the future of digital experiences through innovation, 
-            excellence, and unwavering dedication to technological advancement.
+            A Computer Science student at the University of Malaya. Majoring in Information Systems, and seeking 
+            experiences and knowledge to expand my horizon.
           </motion.p>
 
           {/* Divider */}
